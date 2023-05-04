@@ -38,16 +38,16 @@ article {
 button {
   margin: 1rem 1rem 0.5rem;
   font: inherit;
-  font-size: 2rem;
+  font-size: 1rem;
   padding: 0.5em 1.5em;
   cursor: pointer;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 }
 
 img {
-    width: 200px;
-    border: 0.5rem double #000;
-    border-radius: 50%;
+    width: 30px;
+    border: 0.25rem single #000;
+    border-radius: 100%;
     margin: 0 1rem 1rem;
 }
 
