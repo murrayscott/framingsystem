@@ -18,48 +18,27 @@ function App() {
       return <div>Loading ...</div>;
     }
   
-  if (!isAuthenticated) { 
-    // Display when user is logged out - Minimal view
-    return (
-      <main>
-        <header className="column">
-          
-          <LoginButton />
-
-        </header>
-        <content>
-
-        </content>
-        <footer>
-
-        </footer>
-      </main>
-    );
-  }
-  else {
-    // Display when user is logged in
-    return (
-      <main>
-        <header className="column">
-        </header>
-        <content>
-          <div>
-            <Router>
-            <Navbar />
-              <Routes>
-                <Route path='/' exact component={Home} />
-                <Route path='/admin' component={Admin} />
-                <Route path='/reports' component={Reports} />
-              </Routes>
-            </Router>
-          </div>
-        </content>
-        <footer>
-        </footer>
-      </main>
-    )
-  }
-
+  // Display when user is logged in
+  return (
+    <main>
+      <header className="column">
+      </header>
+      <content>
+        <div>
+          <Router>
+          <Navbar />
+            <Routes>
+              <Route path='/' exact component={Home} />
+              <Route path='/admin' component={Admin} />
+              <Route path='/reports' component={Reports} />
+            </Routes>
+          </Router>
+        </div>
+      </content>
+      <footer>
+      </footer>
+    </main>
+  )
 }
 
 export default App;
