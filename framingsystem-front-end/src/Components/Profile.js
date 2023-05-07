@@ -6,8 +6,7 @@ const Profile = () => {
 
     return (
         isAuthenticated && (
-            <article className='column'>
-                <h3>{user?.name}</h3>
+            <article >
                 {user?.picture && <img src={user.picture} alt={user?.name} />}
             </article>
         )

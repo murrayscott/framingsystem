@@ -1,10 +1,14 @@
 import React from 'react';
 import './App.css';
-import Menu from './Components/Menu';
 import LoginButton from './Components/LoginButton';
-import LogoutButton from './Components/LogoutButton';
-import Profile from './Components/Profile';
+
 import { useAuth0 } from "@auth0/auth0-react";
+
+import Navbar from './Components/Navbar';
+import Home from './Components/pages/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Admin from './Components/pages/Admin';
+import Reports from './Components/pages/Reports';
 
 function App() {
 
@@ -23,9 +27,9 @@ function App() {
           <LoginButton />
 
         </header>
-        <body>
+        <content>
 
-        </body>
+        </content>
         <footer>
 
         </footer>
@@ -37,17 +41,20 @@ function App() {
     return (
       <main>
         <header className="column">
-          <Menu />
-          <LogoutButton />
-          <Profile />
         </header>
-        <body>
+        <content>
           <div>
-           
+            <Router>
+            <Navbar />
+              <Routes>
+                <Route path='/' exact component={Home} />
+                <Route path='/admin' component={Admin} />
+                <Route path='/reports' component={Reports} />
+              </Routes>
+            </Router>
           </div>
-        </body>
+        </content>
         <footer>
-          <h3>Footer Content</h3>
         </footer>
       </main>
     )
