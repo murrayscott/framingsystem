@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "preset_products")
+public class PresetProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,18 +33,12 @@ public class Product {
     @Column(name = "deleted")
     private boolean deleted;
 
-//    Link upwards to Order
-    @JsonIgnoreProperties({"products"})
-    @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
+//    Link downwards to PresetPart
+    @JsonIgnoreProperties({"preset_products"})
+    @OneToMany(mappedBy = "presetProduct", fetch = FetchType.LAZY)
+    private List<PresetPart> presetParts;
 
-//    Link downwards to Part
-    @JsonIgnoreProperties({"products"})
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    private List<Part> parts;
-
-    public Product(String description, double printHeight, double printWidth, double mountOverlap, double mountSizeTop, double mountSizeLeft, double mountSizeRight, double mountSizeBottom, int qty, boolean deleted, Order order) {
+    public PresetProduct(String description, double printHeight, double printWidth, double mountOverlap, double mountSizeTop, double mountSizeLeft, double mountSizeRight, double mountSizeBottom, int qty, boolean deleted) {
         this.description = description;
         this.printHeight = printHeight;
         this.printWidth = printWidth;
@@ -55,13 +49,11 @@ public class Product {
         this.mountSizeBottom = mountSizeBottom;
         this.qty = qty;
         this.deleted = deleted;
-        this.order = order;
-        this.parts = new ArrayList<Part>();
+        this.presetParts = new ArrayList<PresetPart>();
     }
 
-    public Product() {
+    public PresetProduct() {
     }
-
 
     public String getDescription() {
         return description;
@@ -143,19 +135,7 @@ public class Product {
         this.deleted = deleted;
     }
 
-    public Order getOrder() {
-        return order;
-    }
+    public List<PresetPart> getPresetParts() { return presetParts; }
 
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public List<Part> getParts() {
-        return parts;
-    }
-
-    public void setParts(List<Part> parts) {
-        this.parts = parts;
-    }
+    public void setPresetParts(List<PresetPart> presetParts) {this.presetParts = presetParts; }
 }

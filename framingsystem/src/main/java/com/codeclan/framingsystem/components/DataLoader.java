@@ -1,10 +1,7 @@
 package com.codeclan.framingsystem.components;
 
 import com.codeclan.framingsystem.models.*;
-import com.codeclan.framingsystem.repositories.CustomerRepository;
-import com.codeclan.framingsystem.repositories.OrderRepository;
-import com.codeclan.framingsystem.repositories.PartRepository;
-import com.codeclan.framingsystem.repositories.ProductRepository;
+import com.codeclan.framingsystem.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -21,11 +18,24 @@ public class DataLoader implements ApplicationRunner {
     ProductRepository productRepository;
     @Autowired
     PartRepository partRepository;
+    @Autowired
+    PresetProductRepository presetProductRepository;
+    @Autowired
+    PresetPartRepository presetPartRepository;
 
     public DataLoader() {
     }
 
     public void run(ApplicationArguments args){
+//      Create PresetProduct and PresetParts
+        PresetProduct presetProduct1 = new PresetProduct("",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,false);
+        presetProductRepository.save(presetProduct1);
+
+        PresetPart presetPart1 = new PresetPart("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
+        presetPartRepository.save(presetPart1);
+
+
+//      Create Sample Customers, orders, products and parts.
         Customer customer1 = new Customer("Jack Jarvis","Still Game","The Clansman","","","","","","",true,true);
         customerRepository.save(customer1);
 

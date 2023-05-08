@@ -47,14 +47,6 @@ public class Order{
     public Order() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getDate() {
         return date;
     }
