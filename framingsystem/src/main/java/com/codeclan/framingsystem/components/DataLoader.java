@@ -33,7 +33,12 @@ public class DataLoader implements ApplicationRunner {
 
         PresetPart presetPart1 = new PresetPart("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
-
+        PresetPart presetPart2 = new PresetPart("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
+        presetPartRepository.save(presetPart1);
+        PresetPart presetPart3 = new PresetPart("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
+        presetPartRepository.save(presetPart1);
+        PresetPart presetPart4 = new PresetPart("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
+        presetPartRepository.save(presetPart1);
 
 //      Create Sample Customers, orders, products and parts.
         Customer customer1 = new Customer("Jack Jarvis","Still Game","The Clansman","","","","","","",true,true);

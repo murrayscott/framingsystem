@@ -38,16 +38,12 @@ public class Part {
         this.product = product;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
     public Part() {
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+    public Long getId() {return id; }
+
+    public void setId(Long id) {this.id = id; }
 
     public String getDescription() {
         return description;
@@ -120,4 +116,9 @@ public class Part {
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {this.product = product; }
 }

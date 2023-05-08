@@ -6,6 +6,7 @@ import './Navbar.css';
 import Dropdown from './Dropdown';
 import LogoutButton from './LogoutButton';
 import LoginButton from './LoginButton';
+import GetData from './pages/GetData';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -99,7 +100,7 @@ function Navbar() {
             <LogoutButton />
           </ul>
         </nav>
-        <h1>Report goes here</h1>
+        <GetData />
       </>
     );
   }
