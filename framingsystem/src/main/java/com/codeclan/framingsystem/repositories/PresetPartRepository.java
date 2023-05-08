@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PresetPartRepository extends JpaRepository <PresetPart, Long>{
-    List<PresetPart> findPartById(Long id);
+    List<PresetPart> findPresetPartById(Long id);
 }
