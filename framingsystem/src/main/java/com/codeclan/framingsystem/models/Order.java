@@ -2,6 +2,8 @@ package com.codeclan.framingsystem.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import org.springframework.lang.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,21 +23,24 @@ public class Order{
     @Column(name="deleted")
     private boolean deleted;
 
+//    Link upwards to Customer
     @JsonIgnoreProperties({"orders"})
     @ManyToOne
-    @JoinColumn(name = "orders_id", nullable = false)
-    private Order order;
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
 
+//    Link downwards to Product
     @JsonIgnoreProperties({"orders"})
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
-    @Column(name="products")
     private List<Product> products;
 
-    public Order(String date, String requiredDate, Enum deliveryType, boolean deleted) {
+
+    public Order(String date, String requiredDate, Enum deliveryType, boolean deleted, Customer customer) {
         this.date = date;
         this.requiredDate = requiredDate;
         this.deliveryType = deliveryType;
         this.deleted = deleted;
+        this.customer = customer;
         this.products = new ArrayList<Product>();
     }
 
@@ -82,12 +87,12 @@ public class Order{
         this.deleted = deleted;
     }
 
-    public Order getOrder() {
-        return order;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public List<Product> getProducts() {

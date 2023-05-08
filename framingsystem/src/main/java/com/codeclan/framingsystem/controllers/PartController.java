@@ -17,7 +17,7 @@ public class PartController {
     @Autowired
     PartRepository partRepository;
 
-    @GetMapping(value = "/orders")
+    @GetMapping(value = "/parts")
     public ResponseEntity<List<Part>> getPart(
             @RequestParam(name = "id", required = false) Long id
     ){

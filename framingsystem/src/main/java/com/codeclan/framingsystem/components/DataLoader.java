@@ -26,14 +26,16 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args){
-        Order order1 = new Order("04-05-23","23-05-23", DeliveryType.COLLECTION,false);
-        orderRepository.save(order1);
-        Customer customer1 = new Customer("Still Game","Jack Jarvis","","","","","","","",true,true);
+        Customer customer1 = new Customer("Jack Jarvis","Still Game","The Clansman","","","","","","",true,true);
         customerRepository.save(customer1);
 
-        Product product1 = new Product("",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,false);
+        Order order1 = new Order("04-05-23","23-05-23", DeliveryType.COLLECTION,false, customer1);
+        orderRepository.save(order1);
+
+        Product product1 = new Product("",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,false, order1);
         productRepository.save(product1);
-        Part part1 = new Part("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false);
+
+        Part part1 = new Part("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, product1);
         partRepository.save(part1);
     }
 }

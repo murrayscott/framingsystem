@@ -1,10 +1,13 @@
 package com.codeclan.framingsystem.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "parts")
 public class Part {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
     private double width;
@@ -16,12 +19,13 @@ public class Part {
     private int progress;
     private boolean deleted;
 
+//    Link upward to Product
     @JsonIgnoreProperties({"parts"})
     @ManyToOne
-    @JoinColumn(name = "part_id", nullable = false)
-    private Part part;
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
-    public Part(String description, double width, double height, double length, Enum type, double unitMultiple, boolean partStatus, int progress, boolean deleted) {
+    public Part(String description, double width, double height, double length, Enum type, double unitMultiple, boolean partStatus, int progress, boolean deleted, Product product) {
         this.description = description;
         this.width = width;
         this.height = height;
@@ -31,9 +35,18 @@ public class Part {
         this.partStatus = partStatus;
         this.progress = progress;
         this.deleted = deleted;
+        this.product = product;
+    }
+
+    public Product getProduct() {
+        return product;
     }
 
     public Part() {
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public String getDescription() {

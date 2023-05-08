@@ -33,17 +33,18 @@ public class Product {
     @Column(name = "deleted")
     private boolean deleted;
 
+//    Link upwards to Order
     @JsonIgnoreProperties({"products"})
     @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
 
+//    Link downwards to Part
     @JsonIgnoreProperties({"products"})
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    @Column(name="parts")
     private List<Part> parts;
 
-    public Product(String description, double printHeight, double printWidth, double mountOverlap, double mountSizeTop, double mountSizeLeft, double mountSizeRight, double mountSizeBottom, int qty, boolean deleted) {
+    public Product(String description, double printHeight, double printWidth, double mountOverlap, double mountSizeTop, double mountSizeLeft, double mountSizeRight, double mountSizeBottom, int qty, boolean deleted, Order order) {
         this.description = description;
         this.printHeight = printHeight;
         this.printWidth = printWidth;
@@ -54,6 +55,7 @@ public class Product {
         this.mountSizeBottom = mountSizeBottom;
         this.qty = qty;
         this.deleted = deleted;
+        this.order = order;
         this.parts = new ArrayList<Part>();
     }
 
@@ -148,12 +150,12 @@ public class Product {
         this.deleted = deleted;
     }
 
-    public Product getProduct() {
-        return product;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public List<Part> getParts() {
