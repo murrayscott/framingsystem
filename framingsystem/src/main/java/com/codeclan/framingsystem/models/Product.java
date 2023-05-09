@@ -40,7 +40,7 @@ public class Product {
     private Order order;
 
 //    Link downwards to Part
-    @JsonIgnoreProperties({"products"})
+    @JsonIgnoreProperties({"product"})
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<Part> parts;
 

@@ -22,22 +22,32 @@ public class DataLoader implements ApplicationRunner {
     PresetProductRepository presetProductRepository;
     @Autowired
     PresetPartRepository presetPartRepository;
+    @Autowired
+    RawPartRepository rawPartRepository;
 
     public DataLoader() {
     }
 
     public void run(ApplicationArguments args){
+//      Create RawParts
+        RawPart rawPart1 = new RawPart("Glass",0.0,0.0,0.0,Type.AREA,0.0,true,0, false);
+        rawPartRepository.save(rawPart1);
+
 //      Create PresetProduct and PresetParts
         PresetProduct presetProduct1 = new PresetProduct("",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,false);
         presetProductRepository.save(presetProduct1);
 
-        PresetPart presetPart1 = new PresetPart("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
+        PresetPart presetPart1 = new PresetPart("Glass",0.0,0.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
-        PresetPart presetPart2 = new PresetPart("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
+        PresetPart presetPart2 = new PresetPart("Mount",0.0,0.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
-        PresetPart presetPart3 = new PresetPart("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
+        PresetPart presetPart3 = new PresetPart("Moulding",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
-        PresetPart presetPart4 = new PresetPart("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
+        PresetPart presetPart4 = new PresetPart("Backing",0.0,0.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
+        presetPartRepository.save(presetPart1);
+        PresetPart presetPart5 = new PresetPart("Cord",0.0,0.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
+        presetPartRepository.save(presetPart1);
+        PresetPart presetPart6 = new PresetPart("D-Rings",0.0,0.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
 
 //      Create Sample Customers, orders, products and parts.

@@ -36,7 +36,7 @@ public class Customer {
     private boolean gdpr;
 
 //    Link downwards to Order
-    @JsonIgnoreProperties({"customers"})
+    @JsonIgnoreProperties({"customer"})
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Order> orders;
 
