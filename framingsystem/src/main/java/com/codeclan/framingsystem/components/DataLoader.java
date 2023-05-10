@@ -51,7 +51,7 @@ public class DataLoader implements ApplicationRunner {
         presetPartRepository.save(presetPart1);
 
 //      Create Sample Customers, orders, products and parts.
-        Customer customer1 = new Customer("Jack Jarvis","Still Game","The Clansman","","","","","","",true,true);
+        Customer customer1 = new Customer("Jack Jarvis","Still Game","The Clansman","Maryhill","","","","01414444444","old.duffer@gmail.com",true,true);
         customerRepository.save(customer1);
 
         Order order1 = new Order("04-05-23","23-05-23", DeliveryType.COLLECTION,false, customer1);
@@ -61,6 +61,32 @@ public class DataLoader implements ApplicationRunner {
         productRepository.save(product1);
 
         Part part1 = new Part("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, product1);
+        partRepository.save(part1);
+
+        Customer customer2 = new Customer("Victor McDade","Still Game","The Clansman","Maryhill","","","","01412222222","wheresmyzimmer@aol.com",true,true);
+        customerRepository.save(customer2);
+
+        Order order2 = new Order("06-05-23","24-05-23", DeliveryType.COLLECTION,false, customer2);
+        orderRepository.save(order2);
+
+        Product product2 = new Product("",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,false, order2);
+        productRepository.save(product2);
+
+        Part part2 = new Part("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, product2);
+        partRepository.save(part2);
+
+        Customer customer3 = new Customer("Winston Ingram","Still Game","The Clansman","Maryhill","","","","01411111111","wheresmyleg@aol.com",true,true);
+        customerRepository.save(customer3);
+
+        Order order3 = new Order("02-05-23","22-05-23", DeliveryType.COLLECTION,false, customer3);
+        orderRepository.save(order3);
+
+        Product product3 = new Product("",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,false, order3);
+        productRepository.save(product3);
+
+        Part part3 = new Part("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, product3);
+        partRepository.save(part3);
+        partRepository.save(part2);
         partRepository.save(part1);
     }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 
 import { useAuth0 } from "@auth0/auth0-react";
-
 import Navbar from './Components/Navbar';
 import Home from './Components/pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -22,18 +21,18 @@ function App() {
     <main>
       <header className="column">
       </header>
-      <content>
+      <article>
         <div>
           <Router>
           <Navbar />
             <Routes>
               <Route path='/' exact component={Home} />
-              <Route path='/admin' component={Admin} />
+              <Route path='/pages/admin' component={Admin} />
               <Route path='/reports' component={Reports} />
             </Routes>
           </Router>
         </div>
-      </content>
+      </article>
       <footer>
       </footer>
     </main>

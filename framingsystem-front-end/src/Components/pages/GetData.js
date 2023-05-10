@@ -10,21 +10,38 @@ function GetData() {
       .then(data => setOrders(data));
   }, []);
 
-  return (
-    <div>
-        <p> Order Number Customer Name Date Ordered Date Required Telephone</p>
-        {orders.map(order => (
-        <div key={order.id}>
-          <p>{order.id} {order.customer.name} {order.date} {order.requiredDate} {order.customer.telephone}</p>
-          <p>Products: {order.product}</p>
-          <p>DeliveryType: {order.deliveryType}</p>
-          <p>Deleted: {order.deleted}</p>
-          <p>Review: {order.rewiew}</p>
-          <p>GDPR: {order.gdpr}</p>
-        </div>
 
-      ))}
-    </div>
+
+  return (
+    <>
+    <h3>Orders</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Customer Name</th>
+                <th>Date Ordered</th>
+                <th>Date Required</th>
+                <th>Telephone</th>
+                <th>Products</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {orders.map(order => (
+            <tr key={order.id}>
+                <td>{order.id}</td>
+                <td>{order.customer.name}</td>
+                <td>{order.date}</td>
+                <td>{order.requiredDate}</td>
+                <td>{order.customer.telephone}</td>
+                <td><button>1</button></td>
+                <td><button>Edit</button></td>
+                {/* <td><button onClick={() => handleEdit(rowData)}>Edit</button></td> */}
+            </tr>))}
+        </tbody>
+    </table>
+    </>
   );
 }
 
