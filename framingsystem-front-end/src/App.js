@@ -27,7 +27,7 @@ function App() {
           <Navbar />
             <Routes>
               <Route path='/' exact component={Home} />
-              <Route path='/pages/admin' component={Admin} />
+              <Route path='/admin' component={Admin} />
               <Route path='/reports' component={Reports} />
             </Routes>
           </Router>

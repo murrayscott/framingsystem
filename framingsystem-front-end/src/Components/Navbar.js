@@ -7,6 +7,8 @@ import Dropdown from './Dropdown';
 import LogoutButton from './LogoutButton';
 import LoginButton from './LoginButton';
 import GetData from './pages/GetData';
+import GetPartData from './pages/GetPartData';
+import GetProductData from './pages/GetProductData';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -100,7 +102,7 @@ function Navbar() {
             <LogoutButton />
           </ul>
         </nav>
-        <GetData />
+        <GetProductData />
       </>
     );
   }

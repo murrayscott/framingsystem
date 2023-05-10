@@ -30,24 +30,24 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args){
 //      Create RawParts
-        RawPart rawPart1 = new RawPart("Glass",0.0,0.0,0.0,Type.AREA,0.0,true,0, false);
+        RawPart rawPart1 = new RawPart("Glass",700.0,1000.0,0.0,Type.AREA,1.0,true,0, false);
         rawPartRepository.save(rawPart1);
 
 //      Create PresetProduct and PresetParts
-        PresetProduct presetProduct1 = new PresetProduct("",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,false);
+        PresetProduct presetProduct1 = new PresetProduct("Close Framed Print",200.0,300.0,2.0,25.0,25.0,25.0,25.0,1,false);
         presetProductRepository.save(presetProduct1);
 
-        PresetPart presetPart1 = new PresetPart("Glass",0.0,0.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
+        PresetPart presetPart1 = new PresetPart("Glass",350.0,250.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
-        PresetPart presetPart2 = new PresetPart("Mount",0.0,0.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
+        PresetPart presetPart2 = new PresetPart("Mount",300.0,200.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
-        PresetPart presetPart3 = new PresetPart("Moulding",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
+        PresetPart presetPart3 = new PresetPart("Moulding",23.0,45.0,3000.0,Type.LENGTH,0.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
-        PresetPart presetPart4 = new PresetPart("Backing",0.0,0.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
+        PresetPart presetPart4 = new PresetPart("Backing",350.0,250.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
-        PresetPart presetPart5 = new PresetPart("Cord",0.0,0.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
+        PresetPart presetPart5 = new PresetPart("Cord",0.0,0.0,250.0,Type.AREA,0.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
-        PresetPart presetPart6 = new PresetPart("D-Rings",0.0,0.0,0.0,Type.AREA,0.0,true,0, false, presetProduct1);
+        PresetPart presetPart6 = new PresetPart("D-Rings",0.0,0.0,0.0,Type.AREA,2.0,true,0, false, presetProduct1);
         presetPartRepository.save(presetPart1);
 
 //      Create Sample Customers, orders, products and parts.
@@ -57,10 +57,10 @@ public class DataLoader implements ApplicationRunner {
         Order order1 = new Order("04-05-23","23-05-23", DeliveryType.COLLECTION,false, customer1);
         orderRepository.save(order1);
 
-        Product product1 = new Product("",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,false, order1);
+        Product product1 = new Product("Close Framed Print",200.0,300.0,2.0,25.0,25.0,25.0,25.0,2,false, order1);
         productRepository.save(product1);
 
-        Part part1 = new Part("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, product1);
+        Part part1 = new Part("Glass",350.0,250.0,0.0,Type.LENGTH,0.0,true,0, false, product1);
         partRepository.save(part1);
 
         Customer customer2 = new Customer("Victor McDade","Still Game","The Clansman","Maryhill","","","","01412222222","wheresmyzimmer@aol.com",true,true);
