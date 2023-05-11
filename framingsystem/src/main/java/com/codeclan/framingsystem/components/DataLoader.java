@@ -60,7 +60,7 @@ public class DataLoader implements ApplicationRunner {
         Product product1 = new Product("Close Framed Print",200.0,300.0,2.0,25.0,25.0,25.0,25.0,2,false, order1);
         productRepository.save(product1);
 
-        Part part1 = new Part("Glass",350.0,250.0,0.0,Type.LENGTH,0.0,true,0, false, product1);
+        Part part1 = new Part("Glass",350.0,250.0,0.0,Type.LENGTH,0.0,true,0, true, product1);
         partRepository.save(part1);
 
         Customer customer2 = new Customer("Victor McDade","Still Game","The Clansman","Maryhill","","","","01412222222","wheresmyzimmer@aol.com",true,true);
@@ -69,10 +69,10 @@ public class DataLoader implements ApplicationRunner {
         Order order2 = new Order("06-05-23","24-05-23", DeliveryType.COLLECTION,false, customer2);
         orderRepository.save(order2);
 
-        Product product2 = new Product("",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,false, order2);
+        Product product2 = new Product("Float Print",400.0,30.0,0.0,0.0,0.0,0.0,0.0,1,false, order2);
         productRepository.save(product2);
 
-        Part part2 = new Part("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, product2);
+        Part part2 = new Part("Moulding",23.0,45.0,1200.0,Type.LENGTH,1.0,true,0, false, product2);
         partRepository.save(part2);
 
         Customer customer3 = new Customer("Winston Ingram","Still Game","The Clansman","Maryhill","","","","01411111111","wheresmyleg@aol.com",true,true);
@@ -81,10 +81,12 @@ public class DataLoader implements ApplicationRunner {
         Order order3 = new Order("02-05-23","22-05-23", DeliveryType.COLLECTION,false, customer3);
         orderRepository.save(order3);
 
-        Product product3 = new Product("",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,false, order3);
+        Product product3 = new Product("Tray Frame",500.0,350.0,2.0,40.0,40.0,40.0,60.0,3,false, order3);
         productRepository.save(product3);
 
-        Part part3 = new Part("",0.0,0.0,0.0,Type.LENGTH,0.0,true,0, false, product3);
+        Part part3 = new Part("Mount",300.0,200.0,0.0,Type.LENGTH,0.0,true,30, false, product3);
+        Part part4 = new Part("Cord",0.0,0.0,300.0,Type.LENGTH,0.0,true,20, false, product3);
+        partRepository.save(part4);
         partRepository.save(part3);
         partRepository.save(part2);
         partRepository.save(part1);

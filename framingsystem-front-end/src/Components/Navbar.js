@@ -102,7 +102,11 @@ function Navbar() {
             <LogoutButton />
           </ul>
         </nav>
+        <GetData />
+        <hr/>
         <GetProductData />
+        <hr/>
+        <GetPartData />
       </>
     );
   }

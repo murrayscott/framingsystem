@@ -15,6 +15,8 @@ function GetPartData() {
   return (
     <>
     <h3>Parts:</h3>
+    <button>All</button>
+    <button>Deleted</button>
     <table>
         <thead>
             <tr>
@@ -24,6 +26,9 @@ function GetPartData() {
                 <th>Height</th>
                 <th>Length</th>
                 <th>Type</th>
+                <th>Qty</th>
+                <th>Cost</th>
+                <th>Total</th>
                 <th>Progress</th>
                 <th>Action</th>
                 <th>Delete</th>
@@ -38,13 +43,28 @@ function GetPartData() {
                 <td>{part.height>0 ? part.height + " mm":"-"}</td>
                 <td>{part.length>0 ? part.length + " mm":"-"}</td>
                 <td>{part.type}</td>
-                <td>{part.progress}</td>
+                <td>{part.unitMultiple}</td>
+                <td>£0.00</td>
+                <td>£0.00</td>
+                <td>{part.progress}%</td>
                 <td><button>Edit</button></td>
-                <td><button>Remove</button></td>
+                <td><button>{part.deleted ? "Restore" : "Remove"}</button></td>
             </tr>))}
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Total:</td>
+              <td>£0.00</td>
+            </tr>
         </tbody>
     </table>
-    <td><button>Add Part To Product</button></td>
+    <button>Add Preset Part</button>
+    <button>Add New Part</button>
     </>
   );
 }

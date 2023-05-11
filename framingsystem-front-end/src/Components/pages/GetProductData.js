@@ -13,6 +13,10 @@ function GetProductData() {
   return (
     <>
     <h3>Products:</h3>
+    <button>All</button>
+    <button>Active</button>
+    <button>Priority</button>
+    <button>Deleted</button>
     <table>
         <thead>
             <tr>
@@ -20,11 +24,14 @@ function GetProductData() {
                 <th>Description</th>
                 <th>Width</th>
                 <th>Height</th>
+                <th>Overlap</th>
                 <th>Top</th>
                 <th>Bottom</th>
                 <th>Left</th>
                 <th>Right</th>
                 <th>Qty</th>
+                <th>Cost</th>
+                <th>Total</th>
                 <th>Progress</th>
                 <th>Action</th>
                 <th>Delete</th>
@@ -35,21 +42,39 @@ function GetProductData() {
             <tr key={product.id}>
                 <td>{product.id}</td>
                 <td>{product.description}</td>
-                <td>{product.width>0 ? product.width + " mm":"-"}</td>
-                <td>{product.height>0 ? product.height + " mm":"-"}</td>
-                <td>{product.top>0 ? product.top + " mm":"-"}</td>
-                <td>{product.bottom>0 ? product.bottom + " mm":"-"}</td>
-                <td>{product.left>0 ? product.left + " mm":"-"}</td>
-                <td>{product.right>0 ? product.right + " mm":"-"}</td>
+                <td>{product.printWidth>0 ? product.printWidth + " mm":"-"}</td>
+                <td>{product.printHeight>0 ? product.printHeight + " mm":"-"}</td>
+                <td>{product.mountOverlap>0 ? product.mountOverlap + " mm":"-"}</td>
+                <td>{product.mountSizeTop>0 ? product.mountSizeTop + " mm":"-"}</td>
+                <td>{product.mountSizeBottom>0 ? product.mountSizeBottom + " mm":"-"}</td>
+                <td>{product.mountSizeLeft>0 ? product.mountSizeLeft + " mm":"-"}</td>
+                <td>{product.mountSizeRight>0 ? product.mountSizeRight + " mm":"-"}</td>
                 <td>{product.qty}</td>
-                <td>0</td>
+                <td>£0.00</td>
+                <td>£0.00</td>
+                <td>0%</td>
                 <td><button>Edit</button></td>
                 <td><button>Remove</button></td>
                 {/* <td><button onClick={() => handleEdit(rowData)}>Edit</button></td> */}
             </tr>))}
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Total:</td>
+              <td>£0.00</td>
+            </tr>
         </tbody>
     </table>
-    <td><button>Add Product To Order</button></td>
+    <button>Add Preset Product</button>
+    <button>Add New Product</button>
     </>
   );
 }
